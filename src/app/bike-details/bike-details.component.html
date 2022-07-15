@@ -1,0 +1,32 @@
+
+<div class="container">
+    <div class="card-deck">
+        <div class="card mt-5" *ngIf="id != null">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-6">
+                        <img src="{{bike.imageUrl}}" class="card-img-top" alt="Nokia">
+                    </div>
+                    <div class="col-6">
+                        <h3>Product Description</h3>
+                       <ul>
+                        <li>{{bike.modelName}}</li>
+                        <li>{{bike.brakes}}</li>
+                        <li>{{bike.engineCapacity}}</li>
+                        <li>{{bike.fuelTankCapacity}}</li>
+                        <li>{{bike.gears}}</li>
+                        <li>{{bike.mileage}}</li>
+                        <li>{{bike.price}}</li>
+                        <li>{{bike.startingMechanism}}</li>
+                        <li>{{bike.wheelType}}</li>
+                       </ul>
+                        <div>
+                            <button type="button" class="btn btn-primary mr-3">Book Test Drive</button>
+                            <button (click)="list()" class="btn btn-primary">Back </button><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

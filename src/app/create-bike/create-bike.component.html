@@ -1,0 +1,197 @@
+<!-- <h3>Create Bike</h3>
+<div [hidden]="submitted" style="width: 400px;" class="d-flex flex-row justify-content-xl-center mx-auto">
+  <form (ngSubmit)="onSubmit()" [form-group] = "exform">
+    <div class="form-group">
+      <label for="modelName">Model Name </label>
+      <input #modelName="ngModel" 
+              formControlName="name"
+              minlength="3" 
+              maxlength="10" 
+              type="text" 
+              class="form-control " 
+              id="modelName" 
+              required [(ngModel)]="bike.modelName" 
+              name="modelName" >
+    
+      <div 
+      class="alert alert-danger" 
+      *ngIf="modelName.touched && !modelName.valid" >
+      <div 
+      *ngIf="modelName.errors?.['required']" >Model Name is required.
+    </div>
+      <div 
+      *ngIf="modelName.errors?.['minlength']">
+      Model Name should be minlength of {{modelName.errors?.['minlength'].requiredLength}}.
+    </div>
+    </div>
+    </div>
+
+    <div class="form-group">
+      <label for="name">    Brakes </label>
+      <input 
+      type="text" 
+      class="form-control" 
+      id="brakes" 
+      required [(ngModel)]="bike.brakes" 
+      name="brakes" 
+      formControlName="brakes"
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="name">Engine Capacity</label>
+      <input 
+      formControlName="engineCapacity"
+      type="text" class="form-control" id="engineCapacity" required [(ngModel)]="bike.engineCapacity" name="engineCapacity">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Fuel Tank Capacity</label>
+      <input 
+      formControlName="fuelTankCapacity"
+      type="text" class="form-control" id="fuelTankCapacity" required [(ngModel)]="bike.fuelTankCapacity" name="fuelTankCapacity">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Gears</label>
+      <input 
+      formControlName="gears"
+      type="text" class="form-control" id="gears" required [(ngModel)]="bike.gears" name="gears">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Image Url</label>
+      <input 
+      formControlName="imageUrl"
+      type="text" class="form-control" id="imageUrl" required [(ngModel)]="bike.imageUrl" name="imageUrl">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Mileage</label>
+      <input 
+      formControlName="mileage"
+      type="text" class="form-control" id="mileage" required [(ngModel)]="bike.mileage" name="mileage">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Price</label>
+      <input 
+      formControlName="price"
+      type="text" class="form-control" id="price" required [(ngModel)]="bike.price" name="price">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Starting Mechanism</label>
+      <input 
+      formControlName="startingMechanism"
+      type="text" class="form-control" id="startingMechanism" required [(ngModel)]="bike.startingMechanism" name="startingMechanism">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Wheel Type</label>
+      <input 
+      formControlName="wheelType"
+      type="text" class="form-control" id="wheelType" required [(ngModel)]="bike.wheelType" name="wheelType">
+    </div>
+  
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+
+</div>
+
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+  <!-- <button class="btn btn-success" (click)="newEmployee()">Add</button> -->
+<!-- </div> -->
+
+
+
+
+
+<!-- <h3>Create Bike</h3>
+
+<div [hidden]="submitted" style="width: 400px;" class="d-flex flex-row justify-content-xl-center mx-auto">
+  <form (ngSubmit)="onSubmit()" [formGroup]="signUpForm">
+    <div class="form-group">
+      <label for="name">Model Name </label>
+      <input   type="text" class="form-control" formControlName="modelName" id="modelName" required [(ngModel)]="bike.modelName" name="modelName" >
+    </div>
+
+    <div class="form-group">
+      <label for="name">    Brakes </label>
+      <input type="text" class="form-control" id="brakes" required [(ngModel)]="bike.brakes" name="brakes" >
+    </div>
+
+    <div class="form-group">
+      <label for="name">Engine Capacity</label>
+      <input type="text" class="form-control" id="engineCapacity" required [(ngModel)]="bike.engineCapacity" name="engineCapacity">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Fuel Tank Capacity</label>
+      <input type="text" class="form-control" id="fuelTankCapacity" required [(ngModel)]="bike.fuelTankCapacity" name="fuelTankCapacity">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Gears</label>
+      <input type="text" class="form-control" id="gears" required [(ngModel)]="bike.gears" name="gears">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Image Url</label>
+      <input type="text" class="form-control" id="imageUrl" required [(ngModel)]="bike.imageUrl" name="imageUrl">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Mileage</label>
+      <input type="text" class="form-control" id="mileage" required [(ngModel)]="bike.mileage" name="mileage">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Price</label>
+      <input type="text" class="form-control" id="price" required [(ngModel)]="bike.price" name="price">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Starting Mechanism</label>
+      <input type="text" class="form-control" id="startingMechanism" required [(ngModel)]="bike.startingMechanism" name="startingMechanism">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Wheel Type</label>
+      <input type="text" class="form-control" id="wheelType" required [(ngModel)]="bike.wheelType" name="wheelType">
+    </div>
+  
+    <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+
+</div>
+
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+ 
+
+ -->
+
+ 
+
+
+
+ <div class="container pt-5">
+  <div class="row justify-content-sm-center pt-5">
+      <div class="col-sm-6 shadow round pb-3">
+        <h1 class="text-center pt-3 text-secondary">Example Form</h1>
+          <form [formGroup]="exform">
+              <div class="form-group">
+                <label class="col-form-label">Name:</label>
+                <input formControlName="name" type="text" class="form-control">
+                <small *ngIf="name.invalid && name.touched" class="text-danger">Name is Required</small> 
+              </div>
+              
+              
+              
+              <button (click)="clicksub()" [disabled]="exform.invalid" type="button" class="btn btn-primary">Send message</button>
+            </form>
+      </div>
+  </div>
+</div>

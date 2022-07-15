@@ -1,0 +1,28 @@
+
+<div class="search-hero p-5">
+  <input
+    class="form-control"
+    type="text"
+    name="search"
+    [(ngModel)]="term"
+    autocomplete="off"
+    placeholder="&#61442;  Start searching for bikes"
+  />
+</div>
+
+<div class="container">
+  <div class="row">
+      <div *ngFor="let bike of bikes |filter:term" >
+        <div class="col-3">
+            <div class="card  ml-5 mb-3 mt-2" style="width: 18rem; background-color:#e7e5e4;">
+            <img class="card-img-top" src="{{bike.imageUrl}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title" >{{bike.modelName}}</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a  class="btn btn-primary" (click)="bikeDetails(bike.modelNo)" class="btn btn-info" style="margin-left: 10px" >Details</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>

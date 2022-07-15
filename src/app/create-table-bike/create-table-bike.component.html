@@ -1,0 +1,43 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h2>Bike List In Table</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>modelName</th>
+          <th>modelNo</th>
+          <th>brakes</th>
+          <th>engineCapacity</th>
+          <th>fuelTankCapacity</th>
+          <th>gears</th>
+          <th>mileage</th>
+          <th>price</th>
+          <th>startingMechanism</th>
+          <th>wheelType</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let bike of bikes | async">
+          <td>{{bike.modelName}}</td>
+          <td>{{bike.modelNo}}</td>
+            <td>{{bike.brakes}}</td>
+            <td>{{bike.engineCapacity}}</td>
+            <td>{{bike.fuelTankCapacity}}</td>
+            <td>{{bike.gears}}</td>
+            <td>{{bike.mileage}}</td>
+            <td>{{bike.price}}</td>
+            <td>{{bike.startingMechanism}}</td>
+            <td>{{bike.wheelType}}</td>
+          <td>
+            <!-- <button (click)="deleteEmployee(employee.id)" class="btn btn-danger">Delete</button>
+              <button (click)="updateEmployee(employee.id)" class="btn btn-info" style="margin-left: 10px">Update</button>-->
+              
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

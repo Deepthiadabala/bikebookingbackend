@@ -1,0 +1,58 @@
+/* // .bike-item {
+//     .bike-item-content {
+//         border: 1px solid var(--surface-d);
+//         border-radius: 3px;
+//         margin: .3rem;
+//         text-align: center;
+//         padding: 2rem 0;
+//     }
+
+//     .bike-image {
+//         width: 50%;
+//         box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23)
+//     }
+// } */
+.mainLoginInput{
+    height: 40px;
+    padding: 0px;
+    font-size: 30px;
+    margin: 5px 0;
+  }
+  .mainLoginInput::-webkit-input-placeholder { 
+  font-family: FontAwesome;
+  font-weight: normal;
+  overflow: visible;
+  vertical-align: top;
+  display: inline-block !important;
+  padding-left: 5px;
+  padding-top: 2px;
+  color: hsl(9, 40%, 60%);
+  }
+  
+  
+  
+
+h5{
+    color: blue;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 900;
+    font-size: 25px;
+}
+.container {
+    padding-top: 50px;
+    padding-bottom: 10px;
+    color: #405065;
+  }
+  
+  .search-hero {
+    max-width: 500px;
+    padding-bottom: 50px;
+    margin:auto;
+  }
+  
+  .form-control {
+    box-shadow: 0 10px 40px 0 #B0C1D9;
+  }
+  .form-control::placeholder  {
+    font-family: FontAwesome;
+  }
