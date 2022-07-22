@@ -10,56 +10,62 @@ import { BikeService } from '../bike.service';
   styleUrls: ['./create-bike.component.css']
 })
 export class CreateBikeComponent implements OnInit {
-  
-  exform:FormGroup;
-  bike: Bike = new Bike();
+  bikeForm:FormGroup;
+  bike: Bike ;
   submitted = false;
-
+  
   constructor(private bikeService: BikeService,private formbuilder: FormBuilder,
     private router: Router) { }
-
+  
     ngOnInit(): void {
-      this.exform = new FormGroup({
-        'name' : new FormControl(null, Validators.required),
-        'message' : new FormControl(null, [Validators.required, Validators.minLength(10)])
-      });
-      }
+
+      this.bikeForm=this.formbuilder.group({
+        modelName:['',[Validators.required]],
+        brakes: ['',[Validators.required]],
+        engineCapacity: ['',[Validators.required]],
+        fuelTankCapacity:['',[Validators.required]], 
+        gears: ['',[Validators.required]],
+        imageUrl: ['',[Validators.required]],
+        mileage:['',[Validators.required]] ,
+        price: ['',[Validators.min(1),Validators.max(2000000)]],
+        startingMechanism:[''],
+        wheelType: [''],
+        status:['',[Validators.required]]
+        
+        })
+      
+    }
+
+
+    newBike(): void {
+      this.submitted = false;
+      this.bike = new Bike();
+    }
+
+    save() {
+      this.bikeService.createBike(this.bikeForm.value)
+        .subscribe(data => console.log(data), (error) => console.log(error));
+      this.bike = new Bike();
+      this.goToTable();
+    }
+
+    onSubmit() {
+      this.submitted = true;
+      console.log(this.bikeForm.value);
+      this.save();    
+    }
+  
+    goToTable() {
+      this.router.navigate(['table']);
+    }
     
-      clicksub() {
-        console.log(this.exform.value);
-        this.exform.reset();
-      // this.exform = this.formbuilder.group({
-      // modelName:['',Validators.required],
-      // })
+
+    saveForm(){
+      if(this.bikeForm.valid){
+        console.log('Profile form data :: ', this.bikeForm.value);
+      }
     }
-
-    get name() {
-      return this.exform.get('name');
-    }
-
-    get message() {
-      return this.exform.get('message');
-    }
-
-  newBike(): void {
-    this.submitted = false;
-    this.bike = new Bike();
-  }
-
-  save() {
-    this.bikeService.createBike(this.bike)
-      .subscribe(data => console.log(data), (error) => console.log(error));
-    this.bike = new Bike();
-    this.goToTable();
-  }
-
-  onSubmit() {
-    this.submitted = true;
-    this.save();    
-  }
-
-  goToTable() {
-    this.router.navigate(['table']);
-  }
+    
+   
 
 }

@@ -29,5 +29,12 @@ export class CreateTableBikeComponent implements OnInit {
     this.router.navigate(['details']);
   }
 
+  updateBike(id: number){
+    this.router.navigate(['update', id]);
+  }
+
+  
+
+  
 
 }

@@ -16,6 +16,8 @@
           <th>price</th>
           <th>startingMechanism</th>
           <th>wheelType</th>
+          <th>status</th>
+          <th>update</th>
         </tr>
       </thead>
       <tbody>
@@ -30,9 +32,11 @@
             <td>{{bike.price}}</td>
             <td>{{bike.startingMechanism}}</td>
             <td>{{bike.wheelType}}</td>
+            <td>{{bike.status}}</td>
           <td>
-            <!-- <button (click)="deleteEmployee(employee.id)" class="btn btn-danger">Delete</button>
-              <button (click)="updateEmployee(employee.id)" class="btn btn-info" style="margin-left: 10px">Update</button>-->
+            <!-- <button (click)="delete(bike.modelNo)" class="btn btn-danger">Delete</button> -->
+          <button 
+          (click)="updateBike(bike.modelNo)" class="btn btn-info" style="margin-left: 10px">Update</button>
               
           </td>
         </tr>

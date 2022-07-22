@@ -1,28 +1,58 @@
-
 <div class="container">
     <div class="card-deck">
         <div class="card mt-5" *ngIf="id != null">
             <div class="card-body">
+
                 <div class="row">
                     <div class="col-6">
                         <img src="{{bike.imageUrl}}" class="card-img-top" alt="Nokia">
                     </div>
                     <div class="col-6">
                         <h3>Product Description</h3>
-                       <ul>
-                        <li>{{bike.modelName}}</li>
-                        <li>{{bike.brakes}}</li>
-                        <li>{{bike.engineCapacity}}</li>
-                        <li>{{bike.fuelTankCapacity}}</li>
-                        <li>{{bike.gears}}</li>
-                        <li>{{bike.mileage}}</li>
-                        <li>{{bike.price}}</li>
-                        <li>{{bike.startingMechanism}}</li>
-                        <li>{{bike.wheelType}}</li>
-                       </ul>
+                        <ul>
+                            <li>{{bike.modelName}}</li>
+                            <li>{{bike.brakes}}</li>
+                            <li>{{bike.engineCapacity}}</li>
+                            <li>{{bike.fuelTankCapacity}}</li>
+                            <li>{{bike.gears}}</li>
+                            <li>{{bike.mileage}}</li>
+                            <li>{{bike.price}}</li>
+                            <li>{{bike.startingMechanism}}</li>
+                            <li>{{bike.wheelType}}</li>
+                        </ul>
                         <div>
-                            <button type="button" class="btn btn-primary mr-3">Book Test Drive</button>
-                            <button (click)="list()" class="btn btn-primary">Back </button><br>
+                            <!-- <button [disabled]="!bike.status" type="button" class="btn btn-primary mr-3">Book Test Drive</button> -->
+                            <!-- Button trigger modal -->
+                            <button type="button" class=" mr-3" mat-raised-button data-toggle="modal" [disabled]="!bike.status"
+                               color="primary" data-target="#exampleModal" (click)="bookBike(bike.modelNo,userId)">
+                                Book Test Ride
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h3>{{msg}}</h3>
+
+                                            Your Request is in process. Our Administration will reach you out in short
+                                            period of time.
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button (click)="list()" class="btn btn-dark">Back </button><br>
                         </div>
                     </div>
                 </div>

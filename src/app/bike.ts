@@ -10,4 +10,5 @@ export class Bike {
     "price": number;
     "startingMechanism": string;
     "wheelType": string;
+    "status":boolean;
   }
